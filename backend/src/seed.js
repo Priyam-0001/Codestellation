@@ -63,6 +63,13 @@ const seedData = async () => {
       location: { lat: 26.18, lng: 91.75 }
     });
 
+    const publicUser = await User.create({
+      name: "Public User",
+      email: "public@test.com",
+      password: hashedPassword,
+      role: "public"
+    });
+
     // Create camps
     const camp1 = await Camp.create({
       name: "Relief Camp Alpha",

@@ -2,6 +2,7 @@ import express from "express";
 import Camp from "../models/Camp.js";
 import Donation from "../models/Donation.js";
 import Alert from "../models/Alert.js";
+import { protect } from "../middleware/auth.js";
 
 const router = express.Router();
 
