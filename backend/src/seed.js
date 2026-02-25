@@ -30,6 +30,13 @@ const seedData = async () => {
     // Password hash
     const hashedPassword = await bcrypt.hash("123456", 10);
 
+    const admin = await User.create({
+      name: "Govt Admin",
+      email: "admin@govt.com",
+      password: hashedPassword,
+      role: "admin"
+    });
+
     // Create users
     const coordinator = await User.create({
       name: "Admin Coordinator",
