@@ -1,6 +1,7 @@
 import { View, Text, Button, FlatList } from "react-native";
 import { useEffect, useState } from "react";
 import api from "../src/api/api";
+import { router } from "expo-router";
 
 export default function Volunteer() {
   const [tasks, setTasks] = useState([]);
@@ -28,6 +29,7 @@ export default function Volunteer() {
         renderItem={({ item }: any) => (
           <View style={{ marginVertical: 10 }}>
             <Text>{item.title}</Text>
+            <Button title="View Tasks on Map" onPress={() => router.push("./volunteer-map")} />
             <Button title="Accept" onPress={() => acceptTask(item._id)} />
           </View>
         )}

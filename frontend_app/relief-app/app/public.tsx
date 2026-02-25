@@ -1,6 +1,7 @@
-import { View, Text, FlatList, TouchableOpacity, ActivityIndicator } from "react-native";
+import { View, Text, FlatList, TouchableOpacity, ActivityIndicator, Button } from "react-native";
 import { useEffect, useState } from "react";
 import api from "../src/api/api";
+import { router } from "expo-router";
 
 type Camp = {
   _id: string;
@@ -44,6 +45,8 @@ export default function Public() {
       <Text style={{ fontSize: 24, fontWeight: "600", marginBottom: 12 }}>
         Nearby Relief Camps
       </Text>
+
+      <Button title="View Camps on Map" onPress={() => router.push("/public-map")} />
 
       <FlatList
         data={camps}

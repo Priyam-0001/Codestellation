@@ -17,6 +17,11 @@ const taskSchema = new mongoose.Schema({
     ref: "User"
   },
 
+  location: {
+    lat: Number,
+    lng: Number
+  },
+
   camp: {
     type: mongoose.Schema.Types.ObjectId,
     ref: "Camp"

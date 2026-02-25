@@ -10,6 +10,12 @@ const campSchema = new mongoose.Schema({
   capacity: { type: Number, default: 0 },
   currentOccupancy: { type: Number, default: 0 },
 
+  location: {
+    address: String,
+    lat: Number,
+    lng: Number
+  },
+
   criticalNeeds: [{ type: String }] // e.g. ["Food", "Medicine", "Water"]
 }, { timestamps: true });
 

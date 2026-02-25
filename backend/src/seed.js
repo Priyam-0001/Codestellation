@@ -72,19 +72,27 @@ const seedData = async () => {
 
     // Create camps
     const camp1 = await Camp.create({
-      name: "Relief Camp Alpha",
-      location: { lat: 26.14, lng: 91.72, address: "Guwahati" },
+      name: "Relief Camp A",
+      location: {
+        address: "Paltan Bazaar, Guwahati",
+        lat: 26.1445,
+        lng: 91.7362,
+      },
       capacity: 200,
       currentOccupancy: 120,
-      criticalNeeds: ["Food", "Medicine"]
+      criticalNeeds: ["Water", "Medicines"],
     });
 
     const camp2 = await Camp.create({
-      name: "Relief Camp Beta",
-      location: { lat: 26.20, lng: 91.78, address: "Dispur" },
+      name: "Relief Camp B",
+      location: {
+        address: "Dispur, Guwahati",
+        lat: 26.1516,
+        lng: 91.7859,
+      },
       capacity: 150,
-      currentOccupancy: 90,
-      criticalNeeds: ["Water", "Blankets"]
+      currentOccupancy: 80,
+      criticalNeeds: ["Food"],
     });
 
     // Create tasks
@@ -93,7 +101,12 @@ const seedData = async () => {
       description: "Distribute food to families",
       requiredSkills: ["logistics"],
       status: "pending",
-      camp: camp1._id
+      camp: camp1._id,
+      location: {
+        lat: 26.1445,
+        lng: 91.7362,
+  },
+
     });
 
     const task2 = await Task.create({
@@ -102,7 +115,12 @@ const seedData = async () => {
       requiredSkills: ["medical"],
       status: "assigned",
       assignedTo: volunteer2._id,
-      camp: camp2._id
+      camp: camp2._id,
+      location: {
+        lat: 26.1445,
+        lng: 91.7362,
+      },
+
     });
 
     // Create resources
