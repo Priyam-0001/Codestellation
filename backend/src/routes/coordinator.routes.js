@@ -25,6 +25,12 @@ router.post("/camps", async (req, res) => {
   }
 });
 
+// DELETE /api/coordinator/camps/:id
+router.delete("/camps/:id", protect(["coordinator"]), async (req, res) => {
+  await Camp.findByIdAndDelete(req.params.id);
+  res.json({ message: "Camp deleted" });
+});
+
 // Get all camps
 router.get("/camps", async (req, res) => {
   const camps = await Camp.find();
@@ -43,6 +49,12 @@ router.post("/tasks", async (req, res) => {
   } catch (err) {
     res.status(400).json({ message: err.message });
   }
+});
+
+// DELETE /api/coordinator/tasks/:id
+router.delete("/tasks/:id", protect(["coordinator"]), async (req, res) => {
+  await Task.findByIdAndDelete(req.params.id);
+  res.json({ message: "Task deleted" });
 });
 
 // Get all tasks

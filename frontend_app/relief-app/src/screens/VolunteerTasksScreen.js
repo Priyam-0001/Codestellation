@@ -20,7 +20,7 @@ export default function VolunteerTasksScreen() {
   };
 
   return (
-    <View style={{ padding: 20 }}>
+    <View style={{ flex: 1, backgroundColor: colors.background, padding: 16 }}>
       <Text>Available Tasks</Text>
       <FlatList
         data={tasks}

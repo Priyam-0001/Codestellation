@@ -1,6 +1,6 @@
 import { View, Text, Button } from "react-native";
 import { useEffect, useState } from "react";
-import api from "../src/api/api";
+import api from "../../src/api/api";
 
 export default function Admin() {
   const [stats, setStats] = useState<any>(null);

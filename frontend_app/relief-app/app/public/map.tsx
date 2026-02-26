@@ -1,7 +1,7 @@
 import { View, Text, ActivityIndicator, StyleSheet } from "react-native";
 import { useEffect, useState } from "react";
 import MapView, { Marker } from "react-native-maps";
-import api from "../src/api/api";
+import api from "../../src/api/api";
 
 type Camp = {
   _id: string;
@@ -33,9 +33,8 @@ export default function PublicMap() {
     );
   }
 
-  // Fallback region (e.g. your city)
   const initialRegion = {
-    latitude: camps[0]?.location?.lat || 26.1445,   // Guwahati approx
+    latitude: camps[0]?.location?.lat || 26.1445,   // fallback: Guwahati
     longitude: camps[0]?.location?.lng || 91.7362,
     latitudeDelta: 0.2,
     longitudeDelta: 0.2,
@@ -61,12 +60,6 @@ export default function PublicMap() {
 }
 
 const styles = StyleSheet.create({
-  map: {
-    flex: 1,
-  },
-  center: {
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-  },
+  map: { flex: 1 },
+  center: { flex: 1, justifyContent: "center", alignItems: "center" },
 });

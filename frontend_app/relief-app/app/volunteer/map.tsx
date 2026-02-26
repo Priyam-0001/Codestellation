@@ -1,7 +1,7 @@
 import { View, Text, ActivityIndicator, StyleSheet } from "react-native";
 import { useEffect, useState } from "react";
 import MapView, { Marker } from "react-native-maps";
-import api from "../src/api/api";
+import api from "../../src/api/api";
 
 type Task = {
   _id: string;
