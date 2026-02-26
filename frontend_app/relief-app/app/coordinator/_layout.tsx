@@ -55,6 +55,15 @@ export default function CoordinatorLayout() {
           ),
         }}
       />
+      <Tabs.Screen
+        name="profile"
+        options={{
+          title: "Profile",
+          tabBarIcon: ({ color, size }) => (
+            <Ionicons name="person-outline" color={color} size={size} />
+          ),
+        }}
+      />
     </Tabs>
   );
 }

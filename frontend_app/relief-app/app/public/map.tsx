@@ -1,7 +1,9 @@
-import { View, Text, ActivityIndicator, StyleSheet } from "react-native";
+import { View, Text, ActivityIndicator, StyleSheet, Button } from "react-native";
+import MapView, { Marker, Callout } from "react-native-maps";
+// ...rest imports stay same
 import { useEffect, useState } from "react";
-import MapView, { Marker } from "react-native-maps";
 import api from "../../src/api/api";
+import { openInMaps } from "../../src/utils/openMaps";
 
 type Camp = {
   _id: string;
@@ -52,14 +54,34 @@ export default function PublicMap() {
             }}
             title={camp.name}
             description={camp.location.address || "Relief Camp"}
+            onCalloutPress={() =>
+              openInMaps(camp.location!.lat, camp.location!.lng, camp.name)
+            }
           />
         ) : null
       )}
     </MapView>
+    
   );
 }
 
 const styles = StyleSheet.create({
   map: { flex: 1 },
   center: { flex: 1, justifyContent: "center", alignItems: "center" },
+
+  callout: {
+    width: 220,
+    padding: 10,
+    backgroundColor: "#fff",
+    borderRadius: 8,
+  },
+  calloutTitle: {
+    fontSize: 16,
+    fontWeight: "600",
+    marginBottom: 4,
+  },
+  calloutText: {
+    fontSize: 13,
+    color: "#555",
+  },
 });
